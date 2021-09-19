@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from message.models import Message
 from message.forms import MessageForm
-from portfolio.models import *
+from portfolio.models import Categorie, Portfolio
+from team.models import Team
 
 # Create your views here.
 def index(request):
@@ -35,7 +36,9 @@ def work(request):
 def order(request):
     return render(request, 'main/order.html')
 def about(request):
-    return render(request, 'main/about.html')
+    team = Team.objects.all()
+    data = {'team': team}
+    return render(request, 'main/about.html', data)
 
 def contact(request):
     # вывод ошибки, если поле заполненно некорректно
