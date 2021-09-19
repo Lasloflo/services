@@ -1,0 +1,97 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+		{% block nav %}
+		<nav id="fh5co-main-menu" role="navigation">
+				<ul>
+					<li><a href="index.html">Главная</a></li>
+					<li><a href="order.html">Заказ</a></li>
+					<li><a href="about.html">О нас</a></li>
+					<li class="fh5co-active"><a href="contact.html">Контакты</a></li>
+				</ul>
+			</nav>
+		{% endblock %}
+
+{% block content %}
+
+		<div id="fh5co-main">
+			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">{{ error_form }}<span>{{ error_form }}</span></h2>
+			<div id="map">https://goo.gl/maps/9enidpV1iuWC8ZbeA</div>
+			<div class="fh5co-more-contact">
+				<div class="fh5co-narrow-content">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="fh5co-feature fh5co-feature-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="fh5co-icon">
+									<i class="icon-envelope-o"></i>
+								</div>
+								<div class="fh5co-text">
+									<p><a href="#">{{ email }}</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="fh5co-feature fh5co-feature-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="fh5co-icon">
+									<i class="icon-map-o"></i>
+								</div>
+								<div class="fh5co-text">
+									<p>{{ address }}</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="fh5co-feature fh5co-feature-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="fh5co-icon">
+									<i class="icon-phone"></i>
+								</div>
+								<div class="fh5co-text">
+									<p><a href="tel://">{{ phone }} {{ phone2 }}</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="fh5co-narrow-content animate-box" data-animate-effect="fadeInLeft">
+				<div class="row">
+					<div class="col-md-4">
+						<h2>Напишите нам</h2>
+					</div>
+				</div>
+				<form action="" method="post">
+					{% csrf_token %}
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										{{ message_form.name }}
+									</div>
+									<div class="form-group">
+										{{ message_form.email }}
+									</div>
+									<div class="form-group">
+										{{ message_form.phone }}
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										{{ message_form.message }}
+									</div>
+									<div class="form-group">
+										<input type="submit" class="btn btn-primary btn-md" value="Отправить">
+									</div>
+								</div>
+								
+							</div>
+						</div>
+						
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+{% endblock %}
+

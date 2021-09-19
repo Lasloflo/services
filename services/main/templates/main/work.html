@@ -1,0 +1,62 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+		{% block nav %}
+			<nav id="fh5co-main-menu" role="navigation">
+				<ul>
+					<li class="fh5co-active"><a href="index.html">Главная</a></li>
+					<li><a href="order.html">Заказ</a></li>
+					<li><a href="about.html">О нас</a></li>
+					<li><a href="contact.html">Контакты</a></li>
+				</ul>
+			</nav>
+		{% endblock %}
+
+{% block content %}
+			{% for service in portfolio %}
+		<div id="fh5co-main">
+			<div class="fh5co-narrow-content">
+
+				<div class="row">
+					<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+						<figure class="text-center">
+							<img src="{{ service.large_image }}" alt="Free HTML5 Bootstrap" class="img-responsive">
+						</figure>
+					</div>
+					<div class="col-md-8 col-md-offset-2 animate-box" data-animate-effect="fadeInLeft">
+						<div class="col-md-9 col-md-push-3">
+							<h1>{{ service.title }}</h1>
+							<p>{{ service.large_description }}</p>
+						</div>
+						<div class="col-md-3 col-md-pull-9 fh5co-services">
+							<h3>Категории услуг</h3>
+							<ul>
+								{% for cat in portfolio_cat %}
+								<li>{{ cat.name }}</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="row work-pagination animate-box" data-animate-effect="fadeInLeft">
+					<div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+
+						<div class="col-md-4 col-sm-4 col-xs-4 text-center">
+							<a href="#"><i class="icon-long-arrow-left"></i> <span>Предыдущий</span></a>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-4 text-center">
+							<a href="#"><i class="icon-th-large"></i></a>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-4 text-center">
+							<a href="#"><span>Следующий</span> <i class="icon-long-arrow-right"></i></a>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+{% endfor %}
+{% endblock %}
+
