@@ -4,8 +4,10 @@ from django.forms import ModelForm, TextInput, Textarea
 class MessageForm(ModelForm):
     class Meta:
         model = Message
-        fields = ['name', 'email', 'phone', 'message']
-        widgets = {'name': TextInput(attrs={'class': 'form-control',
+        fields = ['theme', 'name', 'email', 'phone', 'message']
+        widgets = {'theme': TextInput(attrs={'class': 'form-control',
+                                            'placeholder': 'Тема сообщения'}),
+                   'name': TextInput(attrs={'class': 'form-control',
                                             'placeholder': 'Ваше имя'}),
                    'email': TextInput(attrs={'class': 'form-control',
                                             'placeholder': 'E-mail'}),

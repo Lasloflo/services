@@ -15,7 +15,7 @@
 <!--галерея/портфолио-->
 		<div id="fh5co-main">
 			<div class="fh5co-narrow-content">
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Мы любим нашу работу <span>Выберите предложение для себя</span></h2>
+				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Мы любим нашу работу <p>Выберите предложение для себя</p></h2>
 				<div class="row animate-box" data-animate-effect="fadeInLeft">
 				{% for cat in portfolio_cat %}
 					{% for service in portfolio %}
@@ -24,7 +24,7 @@
 						<a href="work.html">
 							<img src="{{ service.small_image }}" alt="image here" class="img-responsive">
 							<h3 class="fh5co-work-title">{{ service.title }}</h3>
-							<p>{{ service.small_description }}</p>
+							<p><h5>{{ service.small_description }}</h5></p>
 						</a>
 					</div>
 					{% endif %}
