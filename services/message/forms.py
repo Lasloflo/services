@@ -1,11 +1,11 @@
 from .models import Message
-from django.forms import ModelForm, TextInput, Textarea
+from django.forms import ModelForm, TextInput, Textarea, Select
 
 class MessageForm(ModelForm):
     class Meta:
         model = Message
         fields = ['theme', 'name', 'email', 'phone', 'message']
-        widgets = {'theme': TextInput(attrs={'class': 'form-control',
+        widgets = {'theme': Select(attrs={'class': 'form-control',
                                             'placeholder': 'Тема сообщения'}),
                    'name': TextInput(attrs={'class': 'form-control',
                                             'placeholder': 'Ваше имя'}),

@@ -50,7 +50,7 @@ def contact(request):
             message_form.save()  # сохраняем
             return redirect('contact.html')
         else:
-            error_form = 'Неверные данные в форме отправки сообщения!'  # передаем в словарь data для возможности вывода на сайт
+            error_form = 'Некорректные данные! Проверьте написание адреса электроннной почты и номера телефона.'  # передаем в словарь data для возможности вывода на сайт
             # error_dict = {'error_form': error_form}
             # return redirect('contact.html', error_dict)
     message_form = MessageForm()
