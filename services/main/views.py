@@ -3,24 +3,19 @@ from message.models import Message
 from message.forms import MessageForm
 from portfolio.models import Categorie, Portfolio
 from team.models import Team
+from interaction.models import Interaction, Object
 
 # Create your views here.
 def index(request):
     portfolio_cat = Categorie.objects.all()
     portfolio = Portfolio.objects.all()
+    interaction_con = Interaction.objects.all()
+    object_int = Object.objects.all()
     data = {
-        'portfolio_cat': portfolio_cat,  # галерея блюд
+        'portfolio_cat': portfolio_cat,
         'portfolio': portfolio,
-        # 'title': 'ЕДА',  # передаем название страницы
-        # 'favicon': 'static/img/favicon.ico',  # передаём путь к фавикону
-        # 'menu': menu,  # ссылка на словарь menu, описанный выше
-        # 'phone': '+375-29-9145208',  # номер телефона в Контактах, написанных на странице
-        # 'menu_cat': menu_cat,
-        # 'dishes': dishes,
-        # 'about': about,
-        # 'about_image': 'static/img/about.jpg',
-        # 'our_restaurant': '',  # но, наверно, я ввод текста на сайте из словаря не делала...
-        # 'feedbacks': feedback,
+        'interaction_con': interaction_con,
+        'object_int': object_int,
         }
     return render(request, 'main/index.html', data)
 
@@ -37,7 +32,12 @@ def order(request):
     return render(request, 'main/order.html')
 def about(request):
     team = Team.objects.all()
-    data = {'team': team}
+    interaction_con = Interaction.objects.all()
+    object_int = Object.objects.all()
+    data = {'team': team,
+            'interaction_con': interaction_con,
+            'object_int': object_int,
+            }
     return render(request, 'main/about.html', data)
 
 def contact(request):
@@ -61,10 +61,13 @@ def contact(request):
         # 'favicon': 'static/img/favicon.ico',  # передаём путь к фавикону
         # 'menu': menu,  # ссылка на словарь menu, описанный выше
         # 'phone': '+375-29-9145208',  # номер телефона в Контактах, написанных на странице
-        'email': 'beltiar_t@tut.by beltiar_t@tut.by beltiar_t@tut.by beltiar_t@tut.by beltiar_t@tut.by beltiar_t@tut.by',  # электронка в Контактах, написанных на странице
+        'email': 'beltiar_t@tut.by l.plotnikova.v@gmail.com',  # электронка в Контактах, написанных на странице
         'address': 'Минская область, г.Дзержинск, ул.Советская, д.5.',
-        'phone': '+375-33-300-00-20 +375-29-627-26-83 +375-33-300-00-20 +375-29-627-26-83',
-        'phone2': '+375-29-2568011 +375-29-2568011',
+        'day_working': 'Работаем пн-пт',
+        'working_time1': '08.00 - 13.00',
+        'working_time2': '14.00 - 17.00',
+        'phone': '+375-33-300-00-20 +375-29-627-26-83',
+        'phone2': '8-01718-ХХ-Х-ХХ',
         # 'menu_cat': menu_cat,
         # 'dishes': dishes,
         # 'about': about,

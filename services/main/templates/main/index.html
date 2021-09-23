@@ -60,57 +60,6 @@
 				</div>
 			</div>-->
 
-<!--таблица с иконками
-			<div class="fh5co-narrow-content">
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">This Is What <span>We Love To Do</span></h2>
-				<div class="row">
-					<div class="col-md-6">
-						<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-							<div class="fh5co-icon">
-								<i class="icon-strategy"></i>
-							</div>
-							<div class="fh5co-text">
-								<h3>Strategy</h3>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-							<div class="fh5co-icon">
-								<i class="icon-telescope"></i>
-							</div>
-							<div class="fh5co-text">
-								<h3>Explore</h3>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-							<div class="fh5co-icon">
-								<i class="icon-circle-compass"></i>
-							</div>
-							<div class="fh5co-text">
-								<h3>Direction</h3>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-							<div class="fh5co-icon">
-								<i class="icon-tools-2"></i>
-							</div>
-							<div class="fh5co-text">
-								<h3>Expertise</h3>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>-->
 <!--счетчик работ-->
 			<div class="fh5co-counters" style="background-image: url({% static 'images/hero.jpg' %});" data-stellar-background-ratio="0.5" id="counter-animate">
 				<div class="fh5co-narrow-content animate-box">
@@ -139,16 +88,32 @@
 						<div class="fh5co-card animate-box" data-animate-effect="fadeInLeft">
 							<h5>Диагностика</h5>
 							<p>Техническая диагностика является составной частью технического обслуживания. Основной задачей технического диагностирования является обеспечение безопасности, функциональной надёжности и эффективности работы технического объекта, а также сокращение затрат на его техническое обслуживание и уменьшение потерь от простоев в результате отказов и преждевременных выводов в ремонт.</p>
-							<p><a href="#" class="btn btn-md btn-primary">Обращение</a></p>
+							<p><a href="#" class="btn btn-primary btn-outline">Обращение</a></p>
 						</div>
 						<div class="fh5co-card animate-box" data-animate-effect="fadeInLeft">
 							<h5>Ремонт</h5>
 							<p>Ремо́нт (техники) — комплекс мероприятий по восстановлению работоспособного или исправного состояния какого-либо объекта и/или восстановлению его ресурса.</p>
-							<p><a href="#" class="btn btn-md btn-primary">Обращение</a></p>
+							<p><a href="#" class="btn btn-primary btn-outline">Обращение</a></p>
 						</div>
-
 					</div>	
 					
+				</div>
+			</div>
+
+			<div class="fh5co-narrow-content">
+				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Производители комплектующих</h2>
+				<div class="row animate-box" data-animate-effect="fadeInLeft" align="center">
+				{% for con in interaction_con %}
+					{% if con.connection == 'Производитель' %}
+						{% for obj in object_int %}
+						{% if obj.con_id == con.id %}
+					<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
+							<img src="{{ obj.image_logo }}" alt="image here" class="img-responsive">
+					</div>
+						{% endif %}
+						{% endfor %}
+					{% endif %}
+				{% endfor %}
 				</div>
 			</div>
 <!--описание
@@ -177,6 +142,6 @@
 			</div>-->
 
 		</div>
-	</div>
+
 {% endblock %}
 

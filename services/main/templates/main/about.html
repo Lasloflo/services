@@ -18,7 +18,7 @@
 					<div class="col-md-5">
 						<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Сервис услуг для офиса и бизнеса</h2>
 						<p class="fh5co-lead animate-box" data-animate-effect="fadeInLeft">Оказываем услуги юридическим лицам, организациям и предприятиям</p>
-						<p class="animate-box" data-animate-effect="fadeInLeft">На рынке более 10 лет, обслуживание в Дзержинском, Столбцовском, Минском районах и Минске. Специализация на картриджах, принтерах, МФУ, дополнительно ремонт источников бесперебойногопитания, ремонт компьютерной техники и ноутбуков На рынке более 10 лет, обслуживание в Дзержинском, Столбцовском, Минском районах и Минске. Специализация на картриджах, принтерах, МФУ, дополнительно ремонт источников бесперебойногопитания, ремонт компьютерной техники и ноутбуков</p>
+						<p class="animate-box" data-animate-effect="fadeInLeft">На рынке более 20 лет, обслуживание в Дзержинском, Столбцовском, Минском районах и Минске. Специализация на картриджах, принтерах, МФУ, дополнительно ремонт источников бесперебойногопитания, ремонт компьютерной техники и ноутбуков На рынке более 10 лет, обслуживание в Дзержинском, Столбцовском, Минском районах и Минске. Специализация на картриджах, принтерах, МФУ, дополнительно ремонт источников бесперебойногопитания, ремонт компьютерной техники и ноутбуков</p>
 					</div>
 					<div class="col-md-6 col-md-push-1 animate-box" data-animate-effect="fadeInLeft">
 						<img src="{% static 'images/img_1.jpg' %}" alt="image here" class="img-responsive">
@@ -70,10 +70,12 @@
 					</div>
 				</div>
 			</div>-->
-<!--таблица с иконками и описанием
+<!--таблица с иконками
 			<div class="fh5co-narrow-content fh5co-border-bottom">
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">This Is What <span>We Love To Do</span></h2>
+				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><span>Наши клиенты</span></h2>
+
 				<div class="row">
+
 					<div class="col-md-6">
 						<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
 							<div class="fh5co-icon">
@@ -85,6 +87,19 @@
 							</div>
 						</div>
 					</div>
+
+					<div class="col-md-6">
+						<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
+							<div class="fh5co-icon">
+								<i class="icon-strategy"></i>
+							</div>
+							<div class="fh5co-text">
+								<h3>Strategy</h3>
+								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+							</div>
+						</div>
+					</div>
+
 					<div class="col-md-6">
 						<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
 							<div class="fh5co-icon">
@@ -122,6 +137,40 @@
 
 				</div>
 			</div>-->
+
+			<!--галерея/портфолио-->
+			<div class="fh5co-narrow-content">
+				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Наши клиенты</h2>
+				<div class="row animate-box" data-animate-effect="fadeInLeft" align="center">
+				{% for con in interaction_con %}
+					{% if con.connection == 'Клиент' %}
+						{% for obj in object_int %}
+						{% if obj.con_id == con.id %}
+					<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
+							<img src="{{ obj.image_logo }}" alt="image here" class="img-responsive">
+					</div>
+						{% endif %}
+						{% endfor %}
+					{% endif %}
+				{% endfor %}
+				</div>
+			</div>
+			<div class="fh5co-narrow-content">
+				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Наши партнеры</h2>
+				<div class="row animate-box" data-animate-effect="fadeInLeft" align="center">
+				{% for con in interaction_con %}
+					{% if con.connection == 'Партнёр' %}
+						{% for obj in object_int %}
+						{% if obj.con_id == con.id %}
+					<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
+							<img src="{{ obj.image_logo }}" alt="image here" class="img-responsive">
+					</div>
+						{% endif %}
+						{% endfor %}
+					{% endif %}
+				{% endfor %}
+				</div>
+			</div>
 		
 
 			<div class="fh5co-narrow-content">
@@ -149,6 +198,5 @@
 			</div>
 
 		</div>
-	</div>
 {% endblock %}
 

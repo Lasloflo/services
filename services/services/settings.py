@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'portfolio',
     'message',
     'team',
+    'interaction',
     'main',
 
 ]
