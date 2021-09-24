@@ -6,5 +6,6 @@ urlpatterns = [path('index.html', index),
                path('order.html', order),
                path('about.html', about),
                path('contact.html', contact),
+               path('branch.html', branch),
                path('', index)]
 

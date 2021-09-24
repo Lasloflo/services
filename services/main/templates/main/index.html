@@ -7,6 +7,7 @@
 					<li><a href="order.html">Заказ</a></li>
 					<li><a href="about.html">О нас</a></li>
 					<li><a href="contact.html">Контакты</a></li>
+					<li><a href="branch.html">Филиалы</a></li>
 				</ul>
 			</nav>
 		{% endblock %}
@@ -21,8 +22,10 @@
 					{% for service in portfolio %}
 					{% if cat.id == service.cat_id %}
 					<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
-						<a href="work.html">
+						<a href="work.html" color="#da1212">
 							<img src="{{ service.small_image }}" alt="image here" class="img-responsive">
+							</a>
+							<a href="work.html" color="#da1212">
 							<h3 class="fh5co-work-title">{{ service.title }}</h3>
 							<p><h5>{{ service.small_description }}</h5></p>
 						</a>
@@ -88,12 +91,12 @@
 						<div class="fh5co-card animate-box" data-animate-effect="fadeInLeft">
 							<h5>Диагностика</h5>
 							<p>Техническая диагностика является составной частью технического обслуживания. Основной задачей технического диагностирования является обеспечение безопасности, функциональной надёжности и эффективности работы технического объекта, а также сокращение затрат на его техническое обслуживание и уменьшение потерь от простоев в результате отказов и преждевременных выводов в ремонт.</p>
-							<p><a href="#" class="btn btn-primary btn-outline">Обращение</a></p>
+							<p><a href="#" class="btn btn-primary btn-outline">Обращение или читать больше ???</a></p>
 						</div>
 						<div class="fh5co-card animate-box" data-animate-effect="fadeInLeft">
 							<h5>Ремонт</h5>
 							<p>Ремо́нт (техники) — комплекс мероприятий по восстановлению работоспособного или исправного состояния какого-либо объекта и/или восстановлению его ресурса.</p>
-							<p><a href="#" class="btn btn-primary btn-outline">Обращение</a></p>
+							<p><a href="#" class="btn btn-primary btn-outline">Обращение или читать больше ???</a></p>
 						</div>
 					</div>	
 					

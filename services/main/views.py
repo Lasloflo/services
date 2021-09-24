@@ -50,19 +50,18 @@ def contact(request):
             message_form.save()  # сохраняем
             return redirect('contact.html')
         else:
-            error_form = 'Некорректные данные! Проверьте написание адреса электроннной почты и номера телефона.'  # передаем в словарь data для возможности вывода на сайт
-            # error_dict = {'error_form': error_form}
-            # return redirect('contact.html', error_dict)
+            error_form = 'Некорректные данные! Неверно указан адрес электроннной почты или номер телефона.'  # передаем в словарь data для возможности вывода на сайт
+
     message_form = MessageForm()
     data = {
-        # 'gallery_cat': gallery_cat,  # галерея блюд
+        # 'gallery_cat': gallery_cat,
         # 'gallery': gallery,
         # 'title': 'ЕДА',  # передаем название страницы
         # 'favicon': 'static/img/favicon.ico',  # передаём путь к фавикону
         # 'menu': menu,  # ссылка на словарь menu, описанный выше
         # 'phone': '+375-29-9145208',  # номер телефона в Контактах, написанных на странице
         'email': 'beltiar_t@tut.by l.plotnikova.v@gmail.com',  # электронка в Контактах, написанных на странице
-        'address': 'Минская область, г.Дзержинск, ул.Советская, д.5.',
+        'address': 'Минская область, г.Дзержинск, ул.Советская, д.5, п.14',
         'day_working': 'Работаем пн-пт',
         'working_time1': '08.00 - 13.00',
         'working_time2': '14.00 - 17.00',
@@ -76,6 +75,29 @@ def contact(request):
         # 'feedbacks': feedback,
         'message_form': message_form,
         'error_form': error_form}
-
     return render(request, 'main/contact.html', data)
+
+def branch(request):
+    error_form = ''  # изначально текст ошибки пустой
+    # обработка post-запроса; # request.POST формируется как словарь
+    if request.method == 'POST':  # если пост запрос был
+        message_form = MessageForm(request.POST)  # создается экземпляр класса с данными, переданными пользователем
+        if message_form.is_valid():  # если форма заполнена правильно
+            message_form.save()  # сохраняем
+            return redirect('branch.html')
+        else:
+            error_form = 'Некорректные данные! Неверно указан адрес электроннной почты или номер телефона.'
+
+    message_form = MessageForm()
+    data = {
+        'email': 'stolbcy_mail@tut.by l.plotnikova.v@gmail.com',
+        'address': 'Минская область, г.Столбцы, ул.Социалистическая, д.28',
+        'day_working': 'Работаем пн-пт',
+        'working_time1': '08.00 - 13.00',
+        'working_time2': '14.00 - 17.00',
+        'phone': '+375-29-769-45-96',
+        'phone2': '8-01717-70-9-26',
+        'message_form': message_form,
+        'error_form': error_form}
+    return render(request, 'main/branch.html', data)
 
