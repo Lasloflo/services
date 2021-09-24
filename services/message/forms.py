@@ -13,6 +13,8 @@ class MessageForm(ModelForm):
                                             'placeholder': 'E-mail'}),
                    'phone': TextInput(attrs={'class': 'form-control',
                                             'placeholder': 'Телефон'}),
+                   'branch': Select(attrs={'class': 'form-control',
+                                          'placeholder': 'Филиал'}),
                    'message': Textarea(attrs={'class': 'form-control',
                                             'id': 'message',
                                             'placeholder': 'Сообщение',

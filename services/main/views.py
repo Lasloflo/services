@@ -14,6 +14,9 @@ def index(request):
     data = {
         'portfolio_cat': portfolio_cat,
         'portfolio': portfolio,
+        'counter1': 67,
+        'counter2': 130,
+        'counter3': 27159,
         'interaction_con': interaction_con,
         'object_int': object_int,
         }
